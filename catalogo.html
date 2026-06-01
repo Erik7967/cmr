@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMR - Catálogo Completo 2024 | Insumos Automotrices</title>
+    <meta name="description" content="Catálogo interactivo completo de productos CMR 2024: cintas, papel kraft, folios, adhesivos y detergentes para el sector automotriz">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos específicos para el catálogo interactivo */
+        :root {
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --card-shadow-hover: 0 10px 25px rgba(0, 95, 115, 0.2);
+            --transition: all 0.3s ease;
+        }
+        .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.main-logo {
+    height: 60px;
+    margin-right: 15px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.logo-tagline {
+    font-size: 0.85rem;
+    color: var(--gray-color);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-left: 30px;
+}
+
+.main-nav a {
+    font-weight: 500;
+    color: var(--dark-color);
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.main-nav a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover:after,
+.main-nav a.active:after {
+    width: 100%;
+}
+
+.header-cta .phone-link {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.header-cta .phone-link i {
+    margin-right: 8px;
+}
+
+.header-cta .phone-link:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    transform: translateY(-2px);
+}
+        
+        .catalog-hero {
+            background: linear-gradient(135deg, rgba(0,95,115,0.9) 0%, rgba(10,147,150,0.9) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .catalog-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .catalog-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .catalog-container {
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        /* Filtros de categoría */
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Grid de productos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        
+        .product-image-container {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+            min-height: 50px;
+        }
+        
+        .product-description {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .product-specs {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--gray-color);
+        }
+        
+        .product-specs span {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .product-specs strong {
+            color: var(--dark-color);
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .details-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .details-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* Modal de detalles */
+        .product-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--danger-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            border: none;
+        }
+        
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .modal-body {
+                flex-direction: row;
+            }
+        }
+        
+        .modal-images {
+            flex: 1;
+            padding: 20px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+        }
+        
+        .modal-images img {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+        }
+        
+        .modal-info {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .modal-description {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+        
+        .modal-specs {
+            margin-bottom: 20px;
+        }
+        
+        .modal-specs h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .specs-table th, .specs-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .specs-table th {
+            background-color: #f5f5f5;
+        }
+        
+        .modal-specs ul {
+            margin-left: 20px;
+        }
+        
+        .modal-specs li {
+            margin-bottom: 8px;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .contact-section {
+            background: var(--light-color);
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .contact-container p {
+            margin-bottom: 30px;
+            color: var(--gray-color);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            flex: 1;
+            min-width: 250px;
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 10px;
+        }
+        
+        .contact-card p {
+            margin-bottom: 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            
+            .catalog-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Asegurar que los productos sean visibles por defecto */
+.product-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Animación suave de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card[style*="display: flex"] {
+    animation: fadeInUp 0.4s ease forwards;
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="professional-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="assets/logos/logope.png" alt="CMR Insumos Automotrices" class="main-logo">
+                <div class="logo-text">
+                    <span class="logo-name">CMR</span>
+                    <span class="logo-tagline">Todo lo que necesitas en soluciones</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="politica-de-privacidad.html">Política</a></li>
+                    <li><a href="catalogo.html" class="active">Catálogo</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="tel:+5545233313" class="phone-link">
+                    <i class="fas fa-phone-alt"></i> 55 4523 3313
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero del Catálogo -->
+    <section class="catalog-hero" data-aos="fade-down">
+        <div class="container">
+            <h1>Catálogo 2025</h1>
+            <p>Todo lo que necesitas en soluciones para pintura y hojalatería automotriz</p>
+            <div class="hero-actions">
+                <a href="#products" class="primary-button">
+                    Explorar Productos <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido del Catálogo -->
+    <main class="catalog-container container" id="products">
+        <!-- Filtros de categoría -->
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">Todos</button>
+            <button class="filter-btn" data-category="cintas">Cintas</button>
+            <button class="filter-btn" data-category="papeleria">Papelería</button>
+            <button class="filter-btn" data-category="folios">Folios</button>
+            <button class="filter-btn" data-category="kraft">Papel Kraft</button>
+            <button class="filter-btn" data-category="adhesivos">Adhesivos</button>
+            <button class="filter-btn" data-category="detergentes">Detergentes</button>
+        </div>
+        
+        <!-- Grid de productos -->
+        <div class="products-grid">
+            <!-- CINTAS MASKING TAPE -->
+            <div class="product-card" data-category="cintas" data-aos="fade-up">
+                <div class="product-badge">Más vendido</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/cintas.png" alt="Cinta Masking Tape" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cinta Masking Tape</h3>
+                    <p class="product-description">Cinta adhesiva para enmascarado profesional con diferentes anchos disponibles</p>
+                    <div class="product-specs">
+                        <span><strong>Anchos:</strong> 12mm, 18mm, 24mm, 36mm, 48mm, 72mm</span>
+                        <span><strong>Largo:</strong> 50m por rollo</span>
+                        <span><strong>Tipo:</strong> Económico, Uso general, Alta temperatura</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="masking-tape">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CINTAS DOBLE CAPA -->
+            <div class="product-card" data-category="cintas" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-image-container">
+                    <img src="assets/productos/doblecapa.png" alt="Cintas Doble Capa" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cintas Doble Capa</h3>
+                    <p class="product-description">Para aplicaciones industriales con diferentes materiales de base</p>
+                    <div class="product-specs">
+                        <span><strong>Tipos:</strong> Poliéster, Papel, Foam EVA, Tela</span>
+                        <span><strong>Anchos:</strong> 12mm a 72mm</span>
+                        <span><strong>Largo:</strong> 10m a 50m</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="doble-capa">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CINTA PARA EMPAQUES -->
+            <div class="product-card" data-category="cintas" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-image-container">
+                    <img src="assets/productos/cintasparaempaque.png" alt="Cinta para Empaques" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cinta para Empaques</h3>
+                    <p class="product-description">Cintas especializadas para empaque y embalaje industrial</p>
+                    <div class="product-specs">
+                        <span><strong>Tipos:</strong> Marcaje de área, Antiderrapante, Laminación</span>
+                        <span><strong>Anchos:</strong> 24mm a 1250mm</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="empaques">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CINTA MASKING TAPE ACRÍLICO -->
+            <div class="product-card" data-category="cintas" data-aos="fade-up">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/tape-acrilico.png" alt="Cinta Masking Tape Acrílico" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cinta Masking Acrílico</h3>
+                    <p class="product-description">Cinta para enmascarado con adhesivo acrílico de alto desempeño</p>
+                    <div class="product-specs">
+                        <span><strong>Tipos:</strong> Uso 95 comercial, Uso 100 ligero, Uso 200 pesado</span>
+                        <span><strong>Anchos:</strong> 24mm, 36mm, 48mm</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="masking-acrilico">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CINTA DE AISLAR -->
+            <div class="product-card" data-category="cintas" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-image-container">
+                    <img src="assets/productos/cintasdeaisalar.png" alt="Cinta de Aislar" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cinta de Aislar</h3>
+                    <p class="product-description">Cinta aislante para aplicaciones eléctricas</p>
+                    <div class="product-specs">
+                        <span><strong>Colores:</strong> Blanca, roja, amarilla, verde, azul, negra</span>
+                        <span><strong>Anchos:</strong> 18mm, 19mm</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="aislante">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+ <!-- HOTMELT -->
+ <div class="product-card" data-category="cintas" data-aos="fade-up" data-aos-delay="200">
+    <div class="product-image-container">
+        <img src="assets/productos/hotmelt.png" alt="HOTMELT class="product-image">
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">Hotmelt</h3>
+        <p class="product-description">Cintas con adhesivo termofusible</p>
+        <div class="product-specs">
+            <span><strong>Tipo:</strong> Uso 500 Hotmelt, Uso 579 Hotmelt</span>
+            <span><strong>Aplicaciones:</strong> Embalaje, etiquetado</span>
+            <span><strong>Anchos:</strong> 48mm, 72mm</span>
+        </div>
+        <div class="product-actions">
+
+            <button class="details-btn" data-product="impresa">
+                <i class="fas fa-info-circle"></i> Detalles
+            </button>
+        </div>
+    </div>
+</div>
+
+            <!-- CINTA IMPRESA -->
+            <div class="product-card" data-category="cintas" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-image-container">
+                    <img src="assets/productos/cintaimpresa.png" alt="Cinta Impresa" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cinta Impresa</h3>
+                    <p class="product-description">Cintas con impresión personalizada para identificación</p>
+                    <div class="product-specs">
+                        <span><strong>Tipo:</strong> Flexográfica (1-3 tintas), Encapsulada (1-4 tintas)</span>
+                        <span><strong>Aplicaciones:</strong> Identificación, seguridad</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="impresa">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+                        <!-- CINTA ACRÍLICA VHB -->
+                        <div class="product-card" data-category="cintas" data-aos="fade-up" data-aos-delay="300">
+                            <div class="product-badge">Automotriz</div>
+                            <div class="product-image-container">
+                                <img src="assets/productos/acrilica vhs.png" alt="Cinta Acrílica Arnés" class="product-image">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Cinta Acrílica VHB</h3>
+                                <p class="product-description">Cinta para uniones de refuerzo</p>
+                                <div class="product-specs">
+                                    <span><strong>Ancho:</strong> 6-800mm</span>
+                                    <span><strong>Largo:</strong> 33m</span>
+                                    <span><strong>Espesor:</strong> 1 mm</span>
+                                </div>
+                                <div class="product-actions">
+
+                                    <button class="details-btn" data-product="arnes">
+                                        <i class="fas fa-info-circle"></i> Detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+            
+            <!-- CINTA ACRÍLICA ARNÉS -->
+            <div class="product-card" data-category="cintas" data-aos="fade-up" data-aos-delay="300">
+                
+                <div class="product-image-container">
+                    <img src="assets/productos/cintaacrilicalatastemperaturas.png" alt="Cinta Acrílica Arnés" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cinta Acrílica Arnés</h3>
+                    <p class="product-description">Para cableado automotriz y resistencia al desgaste</p>
+                    <div class="product-specs">
+                        <span><strong>Ancho:</strong> 19mm</span>
+                        <span><strong>Largo:</strong> 25m</span>
+                        <span><strong>Espesor:</strong> 250-280-300 mic</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="arnes">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ROLLOS TÉRMICOS -->
+            <div class="product-card" data-category="papeleria" data-aos="fade-up">
+                <div class="product-image-container">
+                    <img src="assets/productos/rollostermicos.png" alt="Rollos Térmicos" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Rollos Térmicos</h3>
+                    <p class="product-description">Para impresoras térmicas de punto de venta</p>
+                    <div class="product-specs">
+                        <span><strong>Tamaño:</strong> 80mm x 70mm</span>
+                        <span><strong>Cantidad:</strong> 250 rollos por caja</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="rollos-termicos">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FOLIO PROTECTOR AZÚL -->
+            <div class="product-card" data-category="folios" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-badge">Protección</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/folioprotectorazul.png" alt="Folio Protector Azúl" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Folio Protector Azúl</h3>
+                    <p class="product-description">Película autoadhesiva para protección temporal de superficies</p>
+                    <div class="product-specs">
+                        <span><strong>Ancho:</strong> 1.22m</span>
+                        <span><strong>Largo:</strong> 203m</span>
+                        <span><strong>Espesor:</strong> 63µm</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="folio-azul">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FOLIO BAJA ADHERENCIA -->
+            <div class="product-card" data-category="folios" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-image-container">
+                    <img src="assets/productos/folios.png" alt="Folio Baja Adherencia" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Folio Baja Adherencia</h3>
+                    <p class="product-description">Película con adhesivo acrílico de baja adherencia</p>
+                    <div class="product-specs">
+                        <span><strong>Ancho:</strong> 1.22m</span>
+                        <span><strong>Largo:</strong> 203m</span>
+                        <span><strong>Espesor:</strong> 0.002"</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="folio-baja">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAPEL KRAFT NACIONAL -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-image-container">
+                    <img src="assets/productos/Papelkraft.png" alt="Papel Kraft Nacional" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Kraft Nacional</h3>
+                    <p class="product-description">Rollos de papel Kraft cortados a la medida</p>
+                    <div class="product-specs">
+                        <span><strong>Gramajes:</strong> 40gr, 60gr</span>
+                        <span><strong>Anchos:</strong> Personalizados</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="kraft-nacional">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAPEL ENGOMADO -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up">
+                <div class="product-image-container">
+                    <img src="assets/productos/papelengomado.png" alt="Papel Engomado" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Engomado</h3>
+                    <p class="product-description">Papel con adhesivo sensible a la presión</p>
+                    <div class="product-specs">
+                        <span><strong>Aplicaciones:</strong> Empaque, protección</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="engomado">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAPEL TRAZO O REVOLUCIÓN -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-image-container">
+                    <img src="assets/productos/papeltrazo.png" alt="Papel Trazo o Revolución" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Trazo/Revolución</h3>
+                    <p class="product-description">Papel especial para patrones y trazado</p>
+                    <div class="product-specs">
+                        <span><strong>Características:</strong> Alta resistencia, fácil manejo</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="trazo-revolucion">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAPEL BOND -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-image-container">
+                    <img src="assets/productos/papelbond.png" alt="Papel Bond" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Bond</h3>
+                    <p class="product-description">Papel de alta calidad para múltiples usos</p>
+                    <div class="product-specs">
+                        <span><strong>Gramajes:</strong> Variados</span>
+                        <span><strong>Presentación:</strong> Rollos y hojas</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="bond">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAPEL ESTAMPADO -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-image-container">
+                    <img src="assets/productos/papelestampado.png" alt="Papel Estampado" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Estampado</h3>
+                    <p class="product-description">Papel con diseños para decoración y empaque</p>
+                    <div class="product-specs">
+                        <span><strong>Diseños:</strong> Variados</span>
+                        <span><strong>Gramajes:</strong> Según necesidad</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="estampado">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAPEL PERFORADO -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up">
+                <div class="product-image-container">
+                    <img src="assets/productos/papelperforado.png" alt="Papel Perforado" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Perforado</h3>
+                    <p class="product-description">Papel con perforaciones para fácil separación</p>
+                    <div class="product-specs">
+                        <span><strong>Aplicaciones:</strong> Tickets, comprobantes</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="perforado">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAPEL POPULAR -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-image-container">
+                    <img src="assets/productos/papelpopular.png" alt="Papel Popular" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Popular</h3>
+                    <p class="product-description">Papel económico para usos generales</p>
+                    <div class="product-specs">
+                        <span><strong>Gramajes:</strong> Variados</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="popular">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TISSUE -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-image-container">
+                    <img src="assets/productos/tisuue.png" alt="Tissue" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Tissue</h3>
+                    <p class="product-description">Papel tissue para protección y limpieza</p>
+                    <div class="product-specs">
+                        <span><strong>Aplicaciones:</strong> Protección de superficies</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="tissue">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAPEL MICRO PERFORADO -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-image-container">
+                    <img src="assets/productos/papelmicroperforado.png" alt="Papel Micro Perforado" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Micro Perforado</h3>
+                    <p class="product-description">Papel con microperforaciones para ventilación</p>
+                    <div class="product-specs">
+                        <span><strong>Aplicaciones:</strong> Empaque de productos frescos</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="micro-perforado">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- POLIBURBUJA -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up">
+                <div class="product-badge">Protección</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/poliburbuja.png" alt="Poliburbuja" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Poliburbuja</h3>
+                    <p class="product-description">Material de embalaje con burbujas de aire</p>
+                    <div class="product-specs">
+                        <span><strong>Anchos:</strong> Variados</span>
+                        <span><strong>Espesor:</strong> Diferentes opciones</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="poliburbuja">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ROLLO DE PAPEL CORRUGADO -->
+            <div class="product-card" data-category="kraft" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-image-container">
+                    <img src="assets/productos/papelcorrugado.png" alt="Papel Corrugado" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papel Corrugado</h3>
+                    <p class="product-description">Material de embalaje resistente y ligero</p>
+                    <div class="product-specs">
+                        <span><strong>Aplicaciones:</strong> Protección de productos</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="corrugado">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADHESIVO CIANOACRILATO -->
+            <div class="product-card" data-category="adhesivos" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-badge">Rápido</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Adhesivo Cianoacrilato" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Adhesivo Cianoacrilato</h3>
+                    <p class="product-description">Adhesivo instantáneo (fija en segundos)</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 22gr, 100gr, 500gr</span>
+                        <span><strong>Colores:</strong> Transparente, fluorescente, negro</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="cianoacrilato">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADHESIVO EPÓXICOS -->
+            <div class="product-card" data-category="adhesivos" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Adhesivo Epóxicos" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Adhesivo Epóxicos</h3>
+                    <p class="product-description">Para metal, madera, cerámica y plástico</p>
+                    <div class="product-specs">
+                        <span><strong>Tipos:</strong> 1 componente, 2 componentes</span>
+                        <span><strong>Relación mezcla:</strong> 1:1, 1:2</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="epoxicos">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADHESIVOS ULTRAVIOLETAS -->
+            <div class="product-card" data-category="adhesivos" data-aos="fade-up">
+                <div class="product-badge">Tecnología UV</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Adhesivos Ultravioletas" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Adhesivos Ultravioletas</h3>
+                    <p class="product-description">Cura con rayos UV, une piezas en segundos</p>
+                    <div class="product-specs">
+                        <span><strong>Características:</strong> Transparente, alta resistencia</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="ultravioleta">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADHESIVOS ANAERÓBICOS -->
+            <div class="product-card" data-category="adhesivos" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Adhesivos Anaeróbicos" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Adhesivos Anaeróbicos</h3>
+                    <p class="product-description">Para partes metálicas, cura en ausencia de aire</p>
+                    <div class="product-specs">
+                        <span><strong>Aplicaciones:</strong> Fijación y sellado</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="anaerobicos">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADHESIVOS ESTRUCTURALES -->
+            <div class="product-card" data-category="adhesivos" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-badge">Industrial</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Adhesivos Estructurales" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Adhesivos Estructurales</h3>
+                    <p class="product-description">Para industrias marítimas y de transporte</p>
+                    <div class="product-specs">
+                        <span><strong>Componentes:</strong> 2</span>
+                        <span><strong>Resistencia:</strong> Impacto, químicos, agua</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="estructurales">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DECAPANTE -->
+            <div class="product-card" data-category="detergentes" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Decapante" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Decapante</h3>
+                    <p class="product-description">Removedor de pinturas, selladores y recubrimientos</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 5 Gal, 55 Gal</span>
+                        <span><strong>pH:</strong> 11.7</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="decapante">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SUSTITUTO DE SOLVENTE -->
+            <div class="product-card" data-category="detergentes" data-aos="fade-up">
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Sustituto de Solvente" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Sustituto de Solvente</h3>
+                    <p class="product-description">Desengrasante y solvente libre de residuos</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 5 Gal, 55 Gal</span>
+                        <span><strong>Color:</strong> Blanco acuoso</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="sustituto-solvente">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DESENGRASANTE Y REMOCIÓN DE SOLIDOS -->
+            <div class="product-card" data-category="detergentes" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-badge">Lo mas vendido</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Desengrasante" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Desengrasante y Remoción</h3>
+                    <p class="product-description">Para limpieza aeroespacial y partes de avión</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 2.5 Gal, 5 Gal, 55 Gal, 275 Gal, 5000 Gal</span>
+                        <span><strong>pH:</strong> 11</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="desengrasante">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SUSTITUTO SIN DERIVADOS DEL PETRÓLEO -->
+            <div class="product-card" data-category="detergentes" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Sustituto sin Petróleo" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Sustituto sin Petróleo</h3>
+                    <p class="product-description">Desengrasante que no deja residuos, bajo aroma</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 5 Gal, 55 Gal, toallitas</span>
+                        <span><strong>USDA:</strong> K1</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="sustituto-petroleo">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- REMOVEDOR DE MOHO E INCRUSTACIONES -->
+            <div class="product-card" data-category="detergentes" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Removedor de Moho" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Removedor de Moho</h3>
+                    <p class="product-description">A base de ácido fosfórico para incrustaciones</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 5 Gal, 55 Gal</span>
+                        <span><strong>pH:</strong> 1.1</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="removedor-moho">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DESENGRASANTE BASE SOLVENTE -->
+            <div class="product-card" data-category="detergentes" data-aos="fade-up">
+                <div class="product-badge">Biodegradable</div>
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Desengrasante Solvente" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Desengrasante Solvente</h3>
+                    <p class="product-description">Contiene solventes cítricos naturales</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 5 Gal, 55 Gal</span>
+                        <span><strong>USDA:</strong> C1</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="desengrasante-solvente">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- INHIBIDOR DE CORROSIÓN -->
+            <div class="product-card" data-category="detergentes" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Inhibidor de Corrosión" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Inhibidor de Corrosión</h3>
+                    <p class="product-description">Base nitrato, protege de 3 a 5 días</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 5 Gal, 55 Gal</span>
+                        <span><strong>pH:</strong> 7-8</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="inhibidor-corrosion">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LIMPIADOR DE VEHÍCULOS PESADOS -->
+            <div class="product-card" data-category="detergentes" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-image-container">
+                    <img src="assets/productos/imagen no econtrada.jpg" alt="Limpiador para Pesados" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Limpiador para Pesados</h3>
+                    <p class="product-description">Concentrado biodegradable para camiones y remolques</p>
+                    <div class="product-specs">
+                        <span><strong>Presentación:</strong> 5 Gal, 55 Gal</span>
+                        <span><strong>pH:</strong> 8.5-9</span>
+                    </div>
+                    <div class="product-actions">
+
+                        <button class="details-btn" data-product="limpiador-pesados">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+ 
+    <!-- Footer -->
+    <footer class="professional-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="assets/logos/log.png" alt="CMR Insumos Automotrices">
+                </div>
+                <p>Proveedores líderes en insumos para pintura y hojalatería automotriz. Calidad, servicio y compromiso.</p>
+
+            </div>
+            
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Productos</a></li>
+                    <li><a href="politica-de-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="#cintas">Cintas Automotrices</a></li>
+                    <li><a href="#papeleria">Papeles y Protectores</a></li>
+                    <li><a href="#adhesivos">Adhesivos Especializados</a></li>
+                    <li><a href="#detergentes">Productos de Limpieza</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Infonavit Tepalcapa, Cuautitlán Izcalli</li>
+                    <li><i class="fas fa-phone-alt"></i> 55 4523 3313</li>
+                    <li><i class="fas fa-envelope"></i> Ventas024@outlook.com</li>
+                </ul>
+                <div class="footer-cta">
+                    <a href="https://wa.me/5545233313" class="whatsapp-button">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; 2023 CMR Insumos Automotrices. Todos los derechos reservados.
+            </div>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fas fa-money-bill-wave" title="Efectivo"></i>
+                <i class="fas fa-money-check-alt" title="Transferencia"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de detalles de producto -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <img id="modalProductImage" src="" alt="Producto">
+                </div>
+                <div class="modal-info">
+                    <h3 class="modal-title" id="modalProductTitle"></h3>
+                    <p class="modal-description" id="modalProductDescription"></p>
+                    
+                    <div class="modal-specs">
+                        <h4>Especificaciones técnicas</h4>
+                        <ul id="modalProductSpecs">
+                            <!-- Se llena con JavaScript -->
+                        </ul>
+                    </div>
+                    
+                    <div class="modal-specs">
+                        <h4>Presentaciones disponibles</h4>
+                        <table class="specs-table" id="modalProductPresentations">
+                            <!-- Se llena con JavaScript -->
+                        </table>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <a href="tel:+5545233313" class="primary-button">
+                            <i class="fas fa-phone-alt"></i> Llamar para cotizar
+                        </a>
+                        <a href="https://wa.me/5545233313" class="secondary-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón de WhatsApp -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5545233313" target="_blank" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Botón para subir -->
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        // Inicializar AOS
+AOS.init({
+    duration: 800,
+    once: true,
+    easing: 'ease-in-out'
+});
+
+// Función para mostrar productos y refrescar AOS
+function filterProducts(category) {
+    const products = document.querySelectorAll('.product-card');
+    
+    products.forEach(product => {
+        if (category === 'all' || product.dataset.category === category) {
+            product.style.display = 'flex';
+            product.style.opacity = '1';
+            product.style.transform = 'none';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+    
+    // Refrescar AOS para que reconozca los elementos visibles
+    setTimeout(() => {
+        AOS.refresh();
+    }, 50);
+}
+
+// Filtros de categoría con click
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Quitar active de todos los botones
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        // Añadir active al botón clickeado
+        this.classList.add('active');
+        
+        const category = this.dataset.category;
+        filterProducts(category);
+    });
+});
+
+// Función para abrir modal de producto
+function openProductModal(product, productId) {
+    document.getElementById('modalProductImage').src = product.image;
+    document.getElementById('modalProductTitle').textContent = product.title;
+    document.getElementById('modalProductDescription').textContent = product.description;
+    
+    // Limpiar listas
+    const specsList = document.getElementById('modalProductSpecs');
+    const presTable = document.getElementById('modalProductPresentations');
+    specsList.innerHTML = '';
+    presTable.innerHTML = '';
+    
+    // Llenar especificaciones
+    product.specs.forEach(spec => {
+        const li = document.createElement('li');
+        li.textContent = spec;
+        specsList.appendChild(li);
+    });
+    
+    // Crear encabezado de tabla
+    const headerRow = document.createElement('tr');
+    ['Tipo', 'Tamaños', 'Largo'].forEach(text => {
+        const th = document.createElement('th');
+        th.textContent = text;
+        headerRow.appendChild(th);
+    });
+    presTable.appendChild(headerRow);
+    
+    // Llenar presentaciones
+    product.presentations.forEach(pres => {
+        const row = document.createElement('tr');
+        Object.values(pres).forEach(text => {
+            const td = document.createElement('td');
+            td.textContent = text;
+            row.appendChild(td);
+        });
+        presTable.appendChild(row);
+    });
+    
+    // Mostrar modal
+    document.getElementById('productModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+// Abrir modal de producto con botones de detalles
+document.querySelectorAll('.details-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const productId = this.dataset.product;
+        const product = productsData[productId];
+        
+        if (product) {
+            openProductModal(product, productId);
+        }
+    });
+});
+
+// Cerrar modal
+document.querySelector('.close-modal').addEventListener('click', function() {
+    document.getElementById('productModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Cerrar modal al hacer clic fuera
+document.getElementById('productModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Mostrar/ocultar botón de subir
+window.addEventListener('scroll', function() {
+    const backToTop = document.querySelector('.back-to-top');
+    if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
+});
+
+// Filtrar automáticamente según parámetro de URL al cargar la página
+window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoria = urlParams.get('categoria');
+    const productId = urlParams.get('producto');
+    
+    // Si hay categoría en la URL
+    if (categoria) {
+        const filterBtn = document.querySelector(`.filter-btn[data-category="${categoria}"]`);
+        
+        if (filterBtn) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            filterBtn.classList.add('active');
+            filterProducts(categoria);
+            
+            setTimeout(() => {
+                document.getElementById('products').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
+        }
+    } else {
+        // Si no hay categoría, mostrar todos los productos
+        filterProducts('all');
+    }
+    
+    // Si hay un producto específico, abrir su modal
+    if (productId && productsData[productId]) {
+        setTimeout(() => {
+            const product = productsData[productId];
+            openProductModal(product, productId);
+            window.scrollTo(0, 0);
+        }, 500);
+    }
+});
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Filtros de categoría
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Quitar active de todos los botones
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Añadir active al botón clickeado
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                const products = document.querySelectorAll('.product-card');
+                
+                products.forEach(product => {
+                    if (category === 'all' || product.dataset.category === category) {
+                        product.style.display = 'flex';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+const productsData = {
+    // CINTAS
+    'masking-tape': {
+        title: "Cinta Masking Tape",
+        description: "Cinta adhesiva para talleres de pintura automotriz y aplicaciones industriales, facilitando la remocion del masking para el cuidado de la pintura.",
+        image: "assets/productos/cintas.png",
+        specs: [
+            "Resistente a temperaturas moderadas",
+            "Para superficies lisas y rugosas ",
+            "No deja residuos al retirar hasta en 3 días",
+            "Diferentes anchos según necesidad",
+            "Uso en interiores, alta capacidad de adherencia"
+        ],
+        presentations: [
+            { type: "Económico", sizes: "12mm, 18mm, 24mm, 36mm, 48mm", length: "50m" },
+            { type: "Uso general", sizes: "12mm, 18mm, 24mm, 36mm, 48mm, 72mm", length: "50m" },
+            { type: "Alta temperatura", sizes: "12mm, 18mm, 24mm, 36mm, 48mm", length: "50m" },
+            { type: "Uso general de colores (rojo,negro,azul)", sizes: "18mm, 24mm", length: "50m" },
+            { type: "Azul 14 días", sizes: "12mm, 18mm, 24mm, 36mm, 48mm", length: "50m" },
+            { type: "Uso pintores", sizes: "12mm, 18mm, 24mm, 36mm, 48mm", length: "50m" },
+            { type: "Uso automotriz", sizes: "12mm, 18mm, 24mm, 36mm, 48mm", length: "50m" }
+        ]
+    },
+    'doble-capa': {
+        title: "Cintas Doble Capa",
+        description: "Para aplicaciones industriales con diferentes materiales de base, especializado en la union o fijar dos superficies.",
+        image: "assets/productos/doblecapa.png",
+        specs: [
+            "Base de poliéster, papel, foam EVA o tela",
+            "Para uso de interiores",
+            "Facil intalacion sin atornillar o clavar"
+        ],
+        presentations: [
+            { type: "Poliéster", sizes: "12mm, 18mm, 24mm, 36mm, 48mm", length: "50m" },
+            { type: "Papel", sizes: "12mm, 18mm, 24mm, 36mm, 48mm", length: "33m" },
+            { type: "Foam EVA", sizes: "12mm, 18mm, 24mm", length: "10m" },
+            { type: "Tela", sizes: "48mm", length: "10m" },
+            { type: "Ductos", sizes: "48mm", length: "10m, 30m, 50m" },
+            { type: "Aislante", sizes: "19mm", length: "9.2m, 18.3m" },
+            { type: "Flat Back", sizes: "48mm, 72mm", length: "55m" },
+            { type: "Flejadora", sizes: "12mm, 18mm, 24mm, 48mm", length: "50m" }
+        ]
+    },
+    'empaques': {
+        title: "Cinta para Empaques",
+        description: "Cintas especializadas para empaque y embalaje industrial con diferentes características.",
+        image: "assets/productos/cintasparaempaque.png",
+        specs: [
+            "Marcaje de áreas específicas",
+            "Superficie antiderrapante",
+            "Para procesos de laminación",
+            "Resistente a tracción y desgarre"
+        ],
+        presentations: [
+            { type: "Uso 95 colores", sizes: "24mm, 48mm, 72mm", length: "50m, 910 m" },
+            { type: "Texto fragil", sizes: "48mm", length: "50m, 150m" }
+        ]
+    },
+    'masking-acrilico': {
+        title: "Cinta Masking Acrílico",
+        description: "Cintas especializadas para empaque y embalaje industrial con diferentes características.",
+        image: "assets/productos/tape-acrilico.png",
+        specs: [
+            "Adhesivo acrílico de alto rendimiento",
+            "No se cristaliza a bajas temperaturas",
+            "Excelente adherencia",
+        ],
+        presentations: [
+            { type: "Uso 95 comercial", sizes: "36mm, 48mm", length: "50m a 150m" },
+            { type: "Uso 100 ligero", sizes: "24mm, 36mm, 48mm", length: "100m a 910m" },
+            { type: "Uso 200 pesado", sizes: "48mm", length: "50m a 150m" }
+        ]
+    },
+    'aislante': {
+        title: "Cinta de Aislar",
+        description: "Cinta aislante eléctrica de PVC con excelentes propiedades dieléctricas y resistencia a la humedad.",
+        image: "assets/productos/cintasdeaisalar.png",
+        specs: [
+            "Retardante de flama",
+            "Excelente aislamiento eléctrico",
+            "Cinta de PVC",
+            "Amplia gama de colores para identificación",
+            "Base de adhesivo acrílico con mayor adherencia en temperaturas frías y de calor (0 °C / 80 °C)"
+        ],
+        presentations: [
+            { type: "Blanca", sizes: "18mm x 20m", length: "Rollo de 18m" },
+            { type: "Roja", sizes: "18mm x 20m", length: "Rollo de 18m" },
+            { type: "Amarilla", sizes: "18mm x 20m", length: "Rollo de 18m" },
+            { type: "Verde", sizes: "18mm x 20m", length: "Rollo de 18m" },
+            { type: "Azul", sizes: "18mm x 20m", length: "Rollo de 18m" },
+            { type: "Negra", sizes: "18mm x 20m", length: "Rollo de 18m" }
+        ]
+    },
+    'hotmelt': {
+        title: "Hotmelt",
+        description: "Cintas con adhesivo con respaldo de polipropileno resistente a roturas y rasgaduras, pensado para el ambalaje de cajas.",
+        image: "assets/productos/hotmelt.png",
+        specs: [
+            "Adhesivo termofusible",
+            "Adherencia instantánea",
+            "Resistente a temperaturas variables",
+        ],
+        presentations: [
+            { type: "Uso 500 Hotmelt", sizes: "48mm, 72mm", length: "50m a 910m" },
+            { type: "Uso 579 Hotmelt", sizes: "48mm", length: "100m a 910m" }
+        ]
+    },
+    'impresa': {
+        title: "Cinta Impresa",
+        description: "Cintas con impresión personalizada para identificación, seguridad y promoción de marca.",
+        image: "assets/productos/cintaimpresa.png",
+        specs: [
+            "Impresión flexográfica hasta 3 tintas",
+            "Impresión encapsulada hasta 4 tintas",
+            "Diseños personalizables",
+            "Colores varios disponibles"
+        ],
+        presentations: [
+            { type: "Flexográfica", sizes: "1 a 3 tintas", length: "a medida" },
+            { type: "Encapsulada", sizes: "1 a 4 tintas", length: "a medida" }
+        ]
+    },
+    'vhb': {
+        title: "Cinta Acrílica VHB",
+        description: "Cinta de espuma acrílica de muy alta resistencia, familia de cintas doble cara con mayor durabilidad, elasticidad y para uniones estructurales permanentes.",
+        image: "assets/productos/acrilica vhs.png",
+        specs: [
+            "Espuma acrílica de alta densidad",
+            "Uniones permanentes estructurales",
+            "Resistente a vibraciones e impactos",
+            "Espesor de 1mm para relleno de espacios"
+        ],
+        presentations: [
+            { type: "Estándar", sizes: "6mm a 800mm", length: "33m" }
+        ]
+    },
+    'arnes': {
+        title: "Cinta Acrílica Arnés",
+        description: "Cinta especializada para cableado automotriz con resistencia al desgaste y temperaturas extremas.",
+        image: "assets/productos/cintaacrilicalatastemperaturas.png",
+        specs: [
+            "Resistente a altas temperaturas",
+            "Protección contra abrasión",
+            "Flexible y conformable",
+            "Ideal para arneses automotrices"
+        ],
+        presentations: [
+            { type: "250 mic", sizes: "19mm", length: "25m" },
+            { type: "280 mic", sizes: "19mm", length: "25m" },
+            { type: "300 mic", sizes: "19mm", length: "25m" }
+        ]
+    },
+    
+    // PAPELERÍA
+    'rollos-termicos': {
+        title: "Rollos Térmicos",
+        description: "Papel térmico de alta calidad para impresoras de punto de venta y sistemas de facturación.",
+        image: "assets/productos/rollostermicos.png",
+        specs: [
+            "Impresión nítida y duradera",
+            "Compatible con todas las impresoras térmicas",
+            "Resistente al calor"
+        ],
+        presentations: [
+            { type: "Rollo termiico 60 gr", sizes: "80mm x 70mm", length: "250 rollos/caja" }
+        ]
+    },
+    
+    // FOLIOS
+    'folio-azul': {
+        title: "Folio Protector Azúl",
+        description: "Película autoadhesiva de polietileno para la proteccion de diversos materiales.",
+        image: "assets/productos/folioprotectorazul.png",
+        specs: [
+            "Material: Polietileno de baja densidad",
+            "Adhesivo acrílico removible",
+            "No deja residuos",
+            "Funciones de proteccion de vidrio, aluminio, acero inoxideble y policarbonato"
+        ],
+        presentations: [
+            { type: "Estándar", sizes: "1.22m x 203m", length: "Espesor: 63μm" }
+        ]
+    },
+    'folio-baja': {
+        title: "Folio Baja Adherencia",
+        description: "Película protectora transparente que se adhire a superficies delicadas.",
+        image: "assets/productos/folios.png",
+        specs: [
+            "Adhesivo acrílico",
+            "Remoción fácil sin residuos",
+            "Transparente y flexible",
+            "Protección contra rayones y suciedad"
+        ],
+        presentations: [
+            { type: "Baja adherencia", sizes: "1.22m x 203m", length: "Espesor: 0.002 nominal\"" }
+        ]
+    },
+    
+    // PAPEL KRAFT
+    'kraft-nacional': {
+        title: "Papel Kraft Nacional",
+        description: "Rollos de papel kraft cortados a medida para protección y empaque.",
+        image: "assets/productos/Papelkraft.png",
+        specs: [
+            "Papel kraft 100% reciclable",
+            "Cortado a medidas específicas",
+            "Disponible en diferentes gramajes"
+        ],
+        presentations: [
+            { type: "40 gramos", sizes: "Grosor estándar", length: "Rollos a medida" },
+            { type: "60 gramos", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    'engomado': {
+        title: "Papel Engomado",
+        description: "Papel con adhesivo que permite asegurar la integridad del paquete.",
+        image: "assets/productos/papelengomado.png",
+        specs: [
+            "Base de papel kraft resistente",
+            "Fácil aplicación manual",
+            "Ideal para protección"
+        ],
+        presentations: [
+            { type: "Estándar", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    'trazo-revolucion': {
+        title: "Papel Trazo/Revolución",
+        description: "Papel usado para el trasporte, envoltura de alimentos y arte.",
+        image: "assets/productos/papeltrazo.png",
+        specs: [
+            "Superficie lisa para trazado",
+            "Ideal para plantillas industriales"
+        ],
+        presentations: [
+            { type: "Trazo", sizes: "Grosor estándar", length: "Rollos a medida" },
+            { type: "Revolución", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    'bond': {
+        title: "Papel Bond",
+        description: "Papel bond de alta para impresión, dibujo técnico y documentación.",
+        image: "assets/productos/papelbond.png",
+        specs: [
+            "Superficie lisa y uniforme",
+            "Excelente absorción de tinta"
+        ],
+        presentations: [
+            { type: "Estándar", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    'estampado': {
+        title: "Papel Estampado",
+        description: "Papel decorativo con diversos diseños.",
+        image: "assets/productos/papelestampado.png",
+        specs: [
+            "Diseños variados y atractivos",
+            "Colores vivos"
+
+        ],
+        presentations: [
+            { type: "Diseños surtidos", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    'perforado': {
+        title: "Papel Perforado",
+        description: "Papel con perforaciones usado en la industria textil para máquinas de corte automático.",
+        image: "assets/productos/papelperforado.png",
+        specs: [
+            "Perforaciones precisas y uniformes",
+            "Resistente antes del uso"
+
+        ],
+        presentations: [
+            { type: "Estándar", sizes: "Grosor estándar", length: "Rollos a medida" },
+        ]
+    },
+    'popular': {
+        title: "Papel Popular",
+        description: "Papel económico de uso general para aplicaciones básicas de empaque y protección.",
+        image: "assets/productos/papelpopular.png",
+        specs: [
+            "Opción económica y funcional",
+            "Adecuado para usos básicos",
+            "Buena relación calidad-precio"
+        ],
+        presentations: [
+            { type: "Económico", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    'tissue': {
+        title: "Tissue",
+        description: "Papel tissue conocido por su suavidad y alta capacidad de absorción. Con usos variados por multiples industrias.",
+        image: "assets/productos/tisuue.png",
+        specs: [
+            "Suave al tacto",
+            "Alta capacidad de absorción",
+            "No deja pelusa"
+        ],
+        presentations: [
+            { type: "Estádar", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    'micro-perforado': {
+        title: "Papel Micro Perforado",
+        description: "Papel con microperforaciones para facilitar el orden y la frescura de productos perecederos.",
+        image: "assets/productos/papelmicroperforado.png",
+        specs: [
+            "Permite respiración del producto",
+            "Mantiene frescura por más tiempo",
+            "Ideal para productos perecederos"
+        ],
+        presentations: [
+            { type: "Estándar", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    'poliburbuja': {
+        title: "Poliburbuja",
+        description: "Material de embalaje para protección contra impactos y vibraciones de productos.",
+        image: "assets/productos/poliburbuja.png",
+        specs: [
+            "Excelente amortiguación",
+            "Ligero y resistente",
+            "Reutilizable y reciclable"
+        ],
+        presentations: [
+            { type: "Estándar", sizes: "Grosor estándar", length: "Longitud estandar" }
+        ]
+    },
+    'corrugado': {
+        title: "Papel Corrugado",
+        description: "Material de embalaje resistente con estructura corrugada para máxima protección del producto.",
+        image: "assets/productos/papelcorrugado.png",
+        specs: [
+            "Estructura corrugada resistente",
+            "Absorbe impactos efectivamente"
+        ],
+        presentations: [
+            { type: "Estándar", sizes: "Grosor estándar", length: "Rollos a medida" }
+        ]
+    },
+    
+    // ADHESIVOS
+    'cianoacrilato': {
+        title: "Adhesivo Cianoacrilato",
+        description: "Adhesivo instantáneo de cianoacrilato que fija en segundos con alta solides.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Secado instantáneo (segundos)",
+            "Libre de solventes",
+            "Buena resistencia a termociclos",
+            "Buena resistencia a la tension, compresion y corte."
+        ],
+        presentations: [
+            { type: "22 gr" },
+             { type: "100 gr" },
+              { type: "500 gr" }
+        ]
+    },
+    
+    'epoxicos': {
+        title: "Adhesivos Epóxicos",
+        description: "Adhesivos epóxicos estructurales para metal, madera, cerámica y plástico.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Adhesivos estructurales",
+            "Fija en minutos",
+            "Buenas resistencia a esfuerzos e impactos",
+        ],
+         presentations: [
+            { type: "Un componetne" },
+             { type: "Dos componentes" }
+        ]
+        
+    },
+    'ultravioleta': {
+        title: "Adhesivos Ultravioletas",
+        description: "Adhesivos que curan con luz UV.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Curado con luz UV",
+            "Unen piezas en segundos",
+            "Uno de los sustratos debe de ser transulucido, para que pueda polimerizar al adhesivo",
+            "Trasparentes"
+        ],
+        presentations: [
+        ]
+    },
+    'anaerobicos': {
+        title: "Adhesivos Anaeróbicos",
+        description: "Adhesivos que curan en ausencia de aire y en presencia de metal.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Un solo componente",
+            "Fijan en un para de minutos",
+            "Faciles de usar",
+            "Variedad de resistencias"
+        ],
+        presentations: [
+        ]
+        
+    },
+    'estructurales': {
+        title: "Adhesivos Estructurales",
+        description: "Adhesivos ideales para las industrias marítimas y de transporte donde no s epueden usar tornillos o remaches.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Son adhesivos de dos componentes",
+            "Algunos pueden ser maquinados y pintados",
+            "Curacion en frio es lento y viceversa",
+            "Son adhesivos de dos componentes"
+        ],
+        presentations: [
+        ]
+    },
+    
+    // DETERGENTES
+    'decapante': {
+        title: "Decapante",
+        description: "Removedor de pinturas, selladores y recubrimientos.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Alternativa afectiva del cloruro de metileno y de los extractos base ácido",
+            "Remueve múltiples capas",
+            "Uso industrial y automotriz"
+        ],
+        presentations: [
+            { type: "5 Gal"},
+            { type: "55 Gal"}
+        ]
+    },
+    'sustituto-solvente': {
+        title: "Sustituto de Solvente",
+        description: "Desengrasante y solvente libre de residuos.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Libre de residuos",
+            "Color blanco acuoso",
+        ],
+        presentations: [
+            { type: "5 Gal" },
+            { type: "55  Gal"}
+        ]
+    },
+    'desengrasante': {
+        title: "Desengrasante y Remoción",
+        description: "Desengrasante especializado para limpieza aeroespacial y partes de avión.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Color Amarillo claro",
+            "pH alcalino 11",
+            "Desde 2.5 hasta 5000 galones"
+        ],
+        presentations: [
+            { type: "Pequeño", sizes: "2.5 Gal" },
+            { type: "Mediano", sizes: "5 Gal" },
+            { type: "Grnade", sizes: "55 Gal" },
+            { type: "Industrial", sizes: "275 Gal" },
+            { type: "Tanque", sizes: "5000 Gal"}
+        ]
+    },
+    'sustituto-petroleo': {
+        title: "Sustituto sin Petróleo",
+        description: "Desengrasante sin derivados del petróleo, bajo aroma.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Sin derivados del petróleo",
+            "Bajo aroma",
+            "Aplicacionpor inmercion y con trapo",
+            "Sin solventes colorados"
+        ],
+        presentations: [
+            { type: "5 Gal"},
+            { type: "55 Gal" },
+            { type: "6 botes con 100 toallitas" }
+        ]
+    },
+    'removedor-moho': {
+        title: "Removedor de Moho",
+        description: "Removedor de moho e incrustaciones de superficies metalicas, a base de ácido fosfórico, pH muy ácido 1.1.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Base ácido fosfórico",
+            "pH muy ácido 1.1",
+            "Remueve incrustaciones",
+            "Color ambar ligero"
+        ],
+        presentations: [
+            { type: "5 Gal"},
+            { type: "55 Gal" }
+        ]
+    },
+    'desengrasante-solvente': {
+        title: "Desengrasante Solvente",
+        description: "Desengrasante biodegradable sin solventes derivados de petroleo, acidos o alcalis.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Metales ferrosos",
+            "Metales no ferrosos",
+            "Aleaciones",
+            "Certificación USDA C1",
+            "Color amarillo palido",
+            "Aroma citrico"
+        ],
+        presentations: [
+            { type: "5 Gal"},
+            { type: "55 Gal"}
+        ]
+    },
+    'inhibidor-corrosion': {
+        title: "Inhibidor de Corrosión",
+        description: "Inhibidor de corrosión que brinda control para evitar la oxidacion.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Se disuelve en agua",
+            "Protección 3-5 días",
+            "pH neutro 7-8",
+            "Para metales ferrosos",
+            "No es necesario limpiar el producto si se requiere pintar el sustrato"
+        ],
+        presentations: [
+            { type: "5 Gal"},
+            { type: "55 Gal"}
+        ]
+    },
+    'limpiador-pesados': {
+        title: "Limpiador para Pesados",
+        description: "Limpiador concentrado biodegradable para vehículos pesados, camiones y remolques.",
+        image: "assets/productos/imagen no econtrada.jpg",
+        specs: [
+            "Concentrado biodegradable",
+            "Específico para vehículos pesados",
+            "pH alcalino 8.5-9",
+            "Aplicacion con lavadora a presión, limpiador de vapor, por aspersión y manual",
+            "Color naranja",
+            "Aroma a jazmín"
+        ],
+        presentations: [
+            { type: "5 Gal"},
+            { type: "55 Gal" }
+        ]
+    }
+};
+        // Abrir modal de producto
+        document.querySelectorAll('.details-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productId = this.dataset.product;
+                const product = productsData[productId];
+                
+                document.getElementById('modalProductImage').src = product.image;
+                document.getElementById('modalProductTitle').textContent = product.title;
+                document.getElementById('modalProductDescription').textContent = product.description;
+                
+                // Limpiar listas
+                const specsList = document.getElementById('modalProductSpecs');
+                const presTable = document.getElementById('modalProductPresentations');
+                specsList.innerHTML = '';
+                presTable.innerHTML = '';
+                
+                // Llenar especificaciones
+                product.specs.forEach(spec => {
+                    const li = document.createElement('li');
+                    li.textContent = spec;
+                    specsList.appendChild(li);
+                });
+                
+                // Crear encabezado de tabla
+                const headerRow = document.createElement('tr');
+                ['Tipo', 'Tamaños', 'Largo'].forEach(text => {
+                    const th = document.createElement('th');
+                    th.textContent = text;
+                    headerRow.appendChild(th);
+                });
+                presTable.appendChild(headerRow);
+                
+                // Llenar presentaciones
+                product.presentations.forEach(pres => {
+                    const row = document.createElement('tr');
+                    Object.values(pres).forEach(text => {
+                        const td = document.createElement('td');
+                        td.textContent = text;
+                        row.appendChild(td);
+                    });
+                    presTable.appendChild(row);
+                });
+                
+                // Mostrar modal
+                document.getElementById('productModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Cerrar modal
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('productModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Mostrar/ocultar botón de subir
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+
+        // Abrir modal automáticamente desde URL
+window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('producto');
+    
+    if (productId && productsData[productId]) {
+        // Esperar a que la página cargue completamente
+        setTimeout(function() {
+            const product = productsData[productId];
+            
+            // Llenar el modal con los datos del producto
+            document.getElementById('modalProductImage').src = product.image;
+            document.getElementById('modalProductTitle').textContent = product.title;
+            document.getElementById('modalProductDescription').textContent = product.description;
+            
+            // Limpiar listas
+            const specsList = document.getElementById('modalProductSpecs');
+            const presTable = document.getElementById('modalProductPresentations');
+            specsList.innerHTML = '';
+            presTable.innerHTML = '';
+            
+            // Llenar especificaciones
+            product.specs.forEach(spec => {
+                const li = document.createElement('li');
+                li.textContent = spec;
+                specsList.appendChild(li);
+            });
+            
+            // Crear encabezado de tabla
+            const headerRow = document.createElement('tr');
+            ['Tipo', 'Tamaños', 'Largo'].forEach(text => {
+                const th = document.createElement('th');
+                th.textContent = text;
+                headerRow.appendChild(th);
+            });
+            presTable.appendChild(headerRow);
+            
+            // Llenar presentaciones
+            product.presentations.forEach(pres => {
+                const row = document.createElement('tr');
+                Object.values(pres).forEach(text => {
+                    const td = document.createElement('td');
+                    td.textContent = text;
+                    row.appendChild(td);
+                });
+                presTable.appendChild(row);
+            });
+            
+            // Mostrar modal
+            document.getElementById('productModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Scroll al inicio
+            window.scrollTo(0, 0);
+        }, 500); // Esperar medio segundo para que todo cargue
+    }
+});
+
+
+// Filtrar automáticamente según parámetro de URL
+window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoria = urlParams.get('categoria');
+    
+    if (categoria) {
+        // Buscar el botón de filtro correspondiente
+        const filterBtn = document.querySelector(`.filter-btn[data-category="${categoria}"]`);
+        
+        if (filterBtn) {
+            // Remover clase active de todos los botones
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Agregar clase active al botón seleccionado
+            filterBtn.classList.add('active');
+            
+            // Filtrar productos
+            const products = document.querySelectorAll('.product-card');
+            products.forEach(product => {
+                if (product.dataset.category === categoria) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            
+            // Scroll suave a la sección de productos
+            setTimeout(() => {
+                document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    }
+});
+    </script>
+</body>
+</html>

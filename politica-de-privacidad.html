@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | CMR Insumos Automotrices</title>
+    <meta name="description" content="Política de Privacidad de CMR Insumos Automotrices. Conoce cómo recopilamos y utilizamos tu información.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #005f73;
+            --secondary-color: #0a9396;
+            --accent-color: #ee9b00;
+            --dark-color: #001219;
+            --light-color: #f8f9fa;
+            --gray-color: #6c757d;
+            --success-color: #28a745;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        .professional-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .logo-tagline {
+            font-size: 0.85rem;
+            color: var(--gray-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin-left: 30px;
+        }
+
+        .main-nav a {
+            font-weight: 500;
+            color: var(--dark-color);
+            text-decoration: none;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .main-nav a.active,
+        .main-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover:after,
+        .main-nav a.active:after {
+            width: 100%;
+        }
+
+        .header-cta .phone-link {
+            display: flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .header-cta .phone-link i {
+            margin-right: 8px;
+        }
+
+        .header-cta .phone-link:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hero de Política de Privacidad */
+        .privacy-hero {
+            background: linear-gradient(135deg, rgba(0,95,115,0.9) 0%, rgba(10,147,150,0.9) 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .privacy-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .privacy-hero h1:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .privacy-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .privacy-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .privacy-content {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            padding: 50px;
+        }
+        
+        .privacy-section {
+            margin-bottom: 40px;
+        }
+        
+        .privacy-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0,95,115,0.1);
+        }
+        
+        .privacy-section h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin: 25px 0 15px;
+        }
+        
+        .privacy-section p, 
+        .privacy-section ul {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--dark-color);
+        }
+        
+        .privacy-section ul {
+            padding-left: 20px;
+        }
+        
+        .privacy-section li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .privacy-section li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .highlight-box {
+            background-color: rgba(0,95,115,0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 5px 5px 0;
+            margin: 25px 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+        
+        .update-date {
+            text-align: right;
+            font-style: italic;
+            color: var(--gray-color);
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer Profesional */
+        .professional-footer {
+            background-color: #001219;
+            color: white;
+            padding: 80px 0 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #ee9b00;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            max-width: 180px;
+            height: auto;
+        }
+
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ee9b00;
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #ee9b00;
+            width: 20px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .footer-cta {
+            margin-top: 15px;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .whatsapp-button i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #249e43;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float a:hover {
+            background-color: #20ba5a;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .privacy-hero {
+                padding: 80px 20px 60px;
+                margin-top: 70px;
+            }
+            
+            .privacy-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .privacy-content {
+                padding: 30px;
+            }
+            
+            .privacy-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .privacy-section h3 {
+                font-size: 1.2rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .main-nav li {
+                margin-left: 0;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 20px 40px;
+            }
+            
+            .professional-footer {
+                padding: 60px 0 0;
+            }
+            
+            .footer-bottom {
+                padding: 20px;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float a {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+            }
+
+            .back-to-top {
+                bottom: 90px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header profesional -->
+    <header class="professional-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="assets/logos/logope.png" alt="CMR Insumos Automotrices" class="main-logo">
+                <div class="logo-text">
+                    <span class="logo-name">CMR</span>
+                    <span class="logo-tagline">todo lo que necesitas en soluciones</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="politica-de-privacidad.html" class="active">Política</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="tel:+5545233313" class="phone-link">
+                    <i class="fas fa-phone-alt"></i> 55 4523 3313
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero de Política de Privacidad -->
+    <section class="privacy-hero" data-aos="fade-down">
+        <h1>Política de Privacidad</h1>
+        <p>En CMR Insumos Automotrices nos comprometemos a proteger y respetar tu privacidad. Conoce cómo recopilamos y utilizamos tu información.</p>
+    </section>
+
+    <!-- Contenido de Política -->
+    <div class="privacy-container">
+        <div class="privacy-content" data-aos="fade-up">
+            <div class="privacy-section">
+                <h2>1. Introducción</h2>
+                <p>En <strong>CMR</strong> valoramos tu privacidad y nos comprometemos a proteger tus datos personales. Esta Política de Privacidad explica cómo recopilamos, usamos, compartimos y protegemos tu información cuando utilizas nuestros servicios, visitas nuestro sitio web (<a href="index.html">www.cmr-insumos.com</a>) o interactúas con nosotros de cualquier otra manera.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Al utilizar nuestros servicios, aceptas las prácticas descritas en esta política.</strong> Si no estás de acuerdo con estos términos, por favor no utilices nuestro sitio web ni nuestros servicios.</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2>2. Información que Recopilamos</h2>
+                <p>Podemos recopilar y procesar los siguientes tipos de información:</p>
+                
+                <h3>2.1 Información que nos proporcionas directamente</h3>
+                <ul>
+                    <li>Datos de contacto (nombre, dirección, correo electrónico, número de teléfono)</li>
+                    <li>Información de facturación y envío</li>
+                    <li>Detalles de transacciones comerciales</li>
+                    <li>Registros de comunicación (correos electrónicos, chats, llamadas)</li>
+                </ul>
+                
+                <h3>2.2 Información que recopilamos automáticamente</h3>
+                <ul>
+                    <li>Información sobre cómo usas nuestro sitio web</li>
+                    <li>Datos de cookies y tecnologías similares</li>
+                </ul>
+                
+                <h3>2.3 Información de terceros</h3>
+                <p>Podemos recibir información sobre ti de proveedores de servicios de pago, plataformas de análisis y redes sociales, cuando interactúas con nosotros a través de estos canales.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>3. Uso de tu Información</h2>
+                <p>Utilizamos la información que recopilamos para los siguientes fines:</p>
+                
+                <ul>
+                    <li><strong>Proveer nuestros servicios:</strong> Procesar pedidos, gestionar cuentas y brindar soporte al cliente.</li>
+                    <li><strong>Mejorar nuestros servicios:</strong> Analizar el uso del sitio web para optimizar la experiencia del usuario.</li>
+                    <li><strong>Comunicación:</strong> Responder consultas, enviar confirmaciones y actualizaciones sobre pedidos.</li>
+                    <li><strong>Marketing:</strong> Enviar información sobre productos, promociones y noticias (solo con tu consentimiento).</li>
+                    <li><strong>Seguridad:</strong> Prevenir fraudes y actividades no autorizadas.</li>
+                    <li><strong>Cumplimiento legal:</strong> Cumplir con leyes, regulaciones y procesos legales aplicables.</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>No vendemos ni alquilamos tu información personal a terceros con fines comerciales.</strong> Solo compartimos datos cuando es necesario para proveer nuestros servicios o cumplir con obligaciones legales.</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2>4. Bases Legales para el Tratamiento</h2>
+                <p>Procesamos tus datos personales basándonos en las siguientes bases legales:</p>
+                
+                <ul>
+                    <li><strong>Ejecución de contrato:</strong> Cuando es necesario para cumplir con nuestros servicios.</li>
+                    <li><strong>Consentimiento:</strong> Cuando nos has dado tu permiso explícito (ej. para marketing).</li>
+                    <li><strong>Interés legítimo:</strong> Para mejorar nuestros servicios y prevenir fraudes.</li>
+                    <li><strong>Cumplimiento legal:</strong> Cuando es requerido por leyes aplicables.</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>5. Compartir Información con Terceros</h2>
+                <p>Podemos compartir tu información en las siguientes circunstancias:</p>
+                
+                <h3>5.1 Proveedores de servicios</h3>
+                <p>Empresas que nos ayudan a operar nuestro negocio (ej. procesadores de pago, servicios de envío, proveedores de TI). Estos terceros tienen acceso limitado a tu información y están obligados contractualmente a protegerla.</p>
+                
+                <h3>5.2 Requerimientos legales</h3>
+                <p>Cuando sea necesario para cumplir con la ley, regulaciones, procesos legales o solicitudes gubernamentales.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>6. Seguridad de tus Datos</h2>
+                <p>Implementamos medidas técnicas y organizativas apropiadas para proteger tu información personal contra:</p>
+                
+                <ul>
+                    <li>Acceso no autorizado</li>
+                    <li>Alteración, divulgación o destrucción no autorizada</li>
+                    <li>Pérdida accidental</li>
+                </ul>
+                
+                <p>Entre las medidas de seguridad que utilizamos se incluyen:</p>
+                
+                <ul>
+                    <li>Cifrado SSL para datos transmitidos</li>
+                    <li>Sistemas de autenticación seguros</li>
+                    <li>Control de acceso restringido</li>
+                    <li>Revisiones periódicas de seguridad</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p>A pesar de nuestras medidas de seguridad, ninguna transmisión por Internet o sistema de almacenamiento electrónico es 100% seguro. No podemos garantizar la seguridad absoluta de tus datos.</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2>7. Cookies y Tecnologías Similares</h2>
+                <p>Nuestro sitio web utiliza cookies y tecnologías similares para:</p>
+                
+                <ul>
+                    <li>Mejorar la funcionalidad y experiencia del usuario</li>
+                    <li>Analizar el tráfico y uso del sitio</li>
+                    <li>Personalizar contenido y anuncios</li>
+                </ul>
+                <h3>Tipos de cookies que utilizamos:</h3>
+                
+                <ul>
+                    <li><strong>Esenciales:</strong> Necesarias para el funcionamiento básico del sitio.</li>
+                    <li><strong>De rendimiento:</strong> Nos ayudan a entender cómo los visitantes interactúan con el sitio.</li>
+                    <li><strong>Funcionales:</strong> Permiten recordar tus preferencias.</li>
+                    <li><strong>Publicitarias:</strong> Utilizadas para mostrar anuncios relevantes.</li>
+                </ul>
+                
+                <p>Puedes gestionar tus preferencias de cookies a través de la configuración de tu navegador o mediante nuestro banner de consentimiento.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>8. Tus Derechos</h2>
+                <p>De acuerdo con la legislación aplicable, tienes los siguientes derechos sobre tus datos personales:</p>
+                
+                <ul>
+                    <li><strong>Acceso:</strong> Solicitar una copia de la información que tenemos sobre ti.</li>
+                    <li><strong>Rectificación:</strong> Solicitar la corrección de datos inexactos o incompletos.</li>
+                    <li><strong>Eliminación:</strong> Solicitar que borremos tus datos en ciertas circunstancias.</li>
+                    <li><strong>Limitación:</strong> Solicitar que restrinjamos el procesamiento de tus datos.</li>
+                    <li><strong>Portabilidad:</strong> Recibir tus datos en un formato estructurado y transferirlos a otro responsable.</li>
+                    <li><strong>Oposición:</strong> Oponerte al procesamiento de tus datos en ciertos casos.</li>
+                    <li><strong>Retirar consentimiento:</strong> Cuando el procesamiento se basa en tu consentimiento.</li>
+                </ul>
+                
+                <p>Para ejercer estos derechos, contáctanos a través de los medios proporcionados en la sección 11.</p>
+                
+                <div class="highlight-box">
+                    <p>Tienes derecho a presentar una reclamación ante la autoridad de protección de datos correspondiente si consideras que hemos violado las leyes aplicables de protección de datos.</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2>9. Retención de Datos</h2>
+                <p>Conservamos tus datos personales solo durante el tiempo necesario para los fines descritos en esta política, incluyendo:</p>
+                
+                <ul>
+                    <li>Cumplir con obligaciones legales, regulatorias o fiscales</li>
+                    <li>Resolver disputas</li>
+                    <li>Mantener registros comerciales esenciales</li>
+                    <li>Ejecutar nuestros acuerdos</li>
+                </ul>
+                
+                <p>Los criterios específicos de retención varían según el tipo de datos y el propósito del procesamiento.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>10. Contacto</h2>
+                <p>Para ejercer tus derechos, hacer preguntas sobre esta política o presentar una queja sobre nuestras prácticas de privacidad, contáctanos:</p>
+                
+                <ul>
+                    <li><strong>Correo electrónico:</strong> privacidad@cmr-insumos.com</li>
+                    <li><strong>Dirección postal:</strong>  Manzana J Lote 3 Infonavit Tepalcapa Cuautitlán Izcalli CP 54743</li>
+                    <li><strong>Teléfono:</strong> 55 4523 3313</li>
+                </ul>
+                
+                <p>Haremos todo lo posible por responder a tus solicitudes dentro del plazo legal aplicable.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>11. Cambios a esta Política</h2>
+                <p>Podemos actualizar esta Política de Privacidad ocasionalmente para reflejar cambios en nuestras prácticas o requisitos legales. Te notificaremos sobre cambios significativos:</p>
+                
+                <ul>
+                    <li>Publicando la política actualizada en nuestro sitio web con una nueva fecha de vigencia</li>
+                    <li>Enviando una notificación por correo electrónico cuando sea apropiado</li>
+                </ul>
+                
+                <p>Te recomendamos revisar periódicamente esta página para estar informado sobre cómo protegemos tu información.</p>
+            </div>
+
+            <div class="update-date">
+                <p><strong>Última actualización:</strong> 25 de junio de 2023</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Profesional -->
+    <footer class="professional-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="assets/logos/log.png" alt="CMR Insumos Automotrices">
+                </div>
+                <p>Proveedores líderes en insumos para pintura y hojalatería automotriz. Calidad, servicio y compromiso.</p>
+
+            </div>
+            
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Productos</a></li>
+                    <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                    <li><a href="politica-de-privacidad.html">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="politica-cookies.html">Política de Cookies</a></li>
+                    <li><a href="proteccion-datos.html">Protección de Datos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Infonavit Tepalcapa, Cuautitlán Izcalli</li>
+                    <li><i class="fas fa-phone-alt"></i> 55 4523 3313</li>
+                    <li><i class="fas fa-envelope"></i> Ventas024@outlook.com</li>
+                </ul>
+                <div class="footer-cta">
+                    <a href="https://wa.me/5545233313" class="whatsapp-button">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; 2023 CMR Insumos Automotrices. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de WhatsApp -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5545233313" target="_blank" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Botón para subir -->
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Mostrar/ocultar botón de subir
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            
+            // Efecto de header al hacer scroll
+            const header = document.querySelector('.professional-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
